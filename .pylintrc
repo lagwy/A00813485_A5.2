@@ -1,0 +1,10 @@
+[DESIGN]
+# Allow Product's 9 instance attributes (default is 7)
+max-attributes=9
+
+# Allow Product's __init__ with 9 parameters (default is 5)
+max-args=9
+
+[MESSAGES CONTROL]
+# Disable message for broad exception caught
+disable=broad-exception-caught
