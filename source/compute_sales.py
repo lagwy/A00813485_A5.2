@@ -12,6 +12,7 @@ import time
 import json
 
 from product_catalog import ProductCatalog
+from sales import Sales
 
 
 def read_catalog(catalog_file):
@@ -41,6 +42,33 @@ def load_catalog(catalog_file):
     return product_catalog
 
 
+def load_sales(sales_file):
+    """Load the sales from the file and return a Sales object."""
+    sales = read_sales(sales_file)
+    sales_collection = Sales()
+    sales_collection.import_sales(sales)
+    return sales_collection
+
+
+def read_sales(sales_file):
+    """Read the sales from the file and return a list of sales."""
+    sales = []
+
+    try:
+        with open(sales_file, 'r', encoding='utf-8') as file:
+            sales = json.load(file)
+    except json.JSONDecodeError:
+        print(f"Error: {sales_file} is not a valid JSON file.")
+        sys.exit(1)
+    except FileNotFoundError:
+        print(f"Error: {sales_file} file not found.")
+        sys.exit(1)
+    except Exception as error:
+        print(f"Error: {error}")
+        sys.exit(1)
+    return sales
+
+
 def main():
     """Main function to run the calculations."""
     # Check the command line arguments
@@ -49,14 +77,18 @@ def main():
         sys.exit(1)
 
     catalog_file = sys.argv[1]
-    # sales_file = sys.argv[2]
+    sales_file = sys.argv[2]
 
     # Start timing
     start_time = time.time()
 
     # Load the catalog
     product_catalog = load_catalog(catalog_file)
-    print(product_catalog.get_all_products())
+    product_catalog.print_products()
+
+    # Load the sales
+    sales = load_sales(sales_file)
+    sales.print_sales()
 
     # End timing
     end_time = time.time()
