@@ -96,3 +96,10 @@ class Product:
         Get the rating of the product.
         """
         return self.rating
+
+    def print_product(self):
+        """
+        Print the product.
+        """
+        print(f"Product: {self.title}")
+        print(f"Price: {self.price}")

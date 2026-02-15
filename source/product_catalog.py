@@ -45,3 +45,11 @@ class ProductCatalog:
         """
         for product in list_of_products:
             self.add_product(Product.from_dict(product))
+
+    def print_products(self):
+        """
+        Print all products.
+        """
+        for product in self.products.values():
+            print("--------------------------------")
+            product.print_product()
