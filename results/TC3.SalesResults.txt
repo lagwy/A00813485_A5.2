@@ -1,0 +1,90 @@
+--------------------------------
+Sale ID: 1
+Sale Date: 01/12/23
+200 x Rustic breakfast @ $21.32 = $4264.00
+23 x Sandwich with salad @ $22.48 = $517.04
+11 x Raw legums @ $17.11 = $188.21
+Total: $4969.25
+--------------------------------
+Sale ID: 2
+Sale Date: 01/12/23
+221 x Fresh stawberry @ $28.59 = $6318.39
+2 x Raw legums @ $17.11 = $34.22
+Total: $6352.61
+--------------------------------
+Sale ID: 3
+Sale Date: 01/12/23
+400 x Green smoothie @ $17.68 = $7072.00
+2 x Cuban sandwiche @ $18.50 = $37.00
+2 x Hazelnut in black ceramic bowl @ $27.35 = $54.70
+Total: $7163.70
+--------------------------------
+Sale ID: 4
+Sale Date: 01/12/23
+1 x Tomatoes @ $26.03 = $26.03
+250 x Plums @ $19.18 = $4795.00
+334 x Fresh blueberries @ $21.01 = $7017.34
+Total: $11838.37
+--------------------------------
+Sale ID: 5
+Sale Date: 01/12/23
+300 x Green smoothie @ $17.68 = $5304.00
+68 x Corn @ $13.55 = $921.40
+33 x French fries @ $18.32 = $604.56
+Total: $6829.96
+--------------------------------
+Sale ID: 6
+Sale Date: 01/12/23
+78 x Ground beef meat burger @ $11.73 = $914.94
+2 x Hazelnut in black ceramic bowl @ $27.35 = $54.70
+87 x Sweet fresh stawberry @ $29.45 = $2562.15
+1 x Homemade bread @ $17.48 = $17.48
+46 x Smoothie with chia seeds @ $25.26 = $1161.96
+1 x Corn @ $13.55 = $13.55
+2 x Plums @ $19.18 = $38.36
+Product Elotes not found in catalog
+Total: $4763.14
+--------------------------------
+Sale ID: 7
+Sale Date: 01/12/23
+1 x Green smoothie @ $17.68 = $17.68
+2 x Corn @ $13.55 = $27.10
+4 x French fries @ $18.32 = $73.28
+64 x Ground beef meat burger @ $11.73 = $750.72
+2 x Hazelnut in black ceramic bowl @ $27.35 = $54.70
+Total: $923.48
+--------------------------------
+Sale ID: 8
+Sale Date: 01/12/23
+3 x Sweet fresh stawberry @ $29.45 = $88.35
+456 x Homemade bread @ $17.48 = $7970.88
+2 x Smoothie with chia seeds @ $25.26 = $50.52
+5 x Corn @ $13.55 = $67.75
+645 x Plums @ $19.18 = $12371.10
+-35 x Fresh blueberries @ $21.01 = $-735.35
+2 x Green smoothie @ $17.68 = $35.36
+Total: $19848.61
+--------------------------------
+Sale ID: 9
+Sale Date: 02/12/23
+465 x Corn @ $13.55 = $6300.75
+Product Frijoles not found in catalog
+4 x Ground beef meat burger @ $11.73 = $46.92
+1 x Hazelnut in black ceramic bowl @ $27.35 = $27.35
+131 x Sweet fresh stawberry @ $29.45 = $3857.95
+9 x Homemade bread @ $17.48 = $157.32
+Total: $10390.29
+--------------------------------
+Sale ID: 10
+Sale Date: 02/12/23
+13 x Smoothie with chia seeds @ $25.26 = $328.38
+678 x Corn @ $13.55 = $9186.90
+334 x Plums @ $19.18 = $6406.12
+3445 x Fresh blueberries @ $21.01 = $72379.45
+-123 x Green smoothie @ $17.68 = $-2174.64
+445 x Corn @ $13.55 = $6029.75
+Total: $92155.96
+--------------------------------
+Grand Total: $165235.37
+--------------------------------
+Elapsed time: 0.002 seconds
