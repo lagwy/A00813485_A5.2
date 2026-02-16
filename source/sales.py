@@ -18,6 +18,13 @@ class Sales:
         Initialize a sales.
         """
         self.sales = {}
+        self.catalog = None
+
+    def set_catalog(self, catalog):
+        """
+        Set the product catalog used for totals and printing.
+        """
+        self.catalog = catalog
 
     def add_sale(self, sale):
         """
@@ -38,7 +45,7 @@ class Sales:
         Get a sale from the sales by sale id.
         """
         if sale_id not in self.sales:
-            raise ValueError(f"Sale {sale_id} not found in sales record")
+            return None
         return self.sales[sale_id]
 
     def get_all_sales(self):
@@ -46,6 +53,16 @@ class Sales:
         Get all sales from the sales.
         """
         return list(self.sales.values())
+
+    def get_total(self):
+        """
+        Return the grand total for all sales using the catalog for prices.
+        """
+        if self.catalog is None:
+            raise ValueError("Catalog not set; call set_catalog() first")
+        return sum(
+            sale.get_total(self.catalog) for sale in self.sales.values()
+            )
 
     def import_sales(self, list_of_sales):
         """
@@ -56,8 +73,13 @@ class Sales:
 
     def print_sales(self):
         """
-        Print all sales.
+        Print all sales and their totals (requires catalog to be set).
         """
+        if self.catalog is None:
+            raise ValueError("Catalog not set; call set_catalog() first")
         for sale in self.sales.values():
             print("--------------------------------")
-            sale.print_sale()
+            sale.print_sale(self.catalog)
+        print("--------------------------------")
+        print(f"Grand Total: ${self.get_total():.2f}")
+        print("--------------------------------")

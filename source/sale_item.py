@@ -42,3 +42,12 @@ class SaleItem:
         Get the quantity of the sales record.
         """
         return self.quantity
+
+    def line_total(self, catalog):
+        """
+        Return the line total (quantity * unit price) using the catalog.
+        """
+        product = catalog.get_product_by_title(self.product)
+        if product is None:
+            return None
+        return self.quantity * product.get_price()

@@ -30,7 +30,7 @@ class ProductCatalog:
         Get a product from the catalog by title.
         """
         if title not in self.products:
-            raise ValueError(f"Product {title} not found in catalog")
+            return None
         return self.products[title]
 
     def get_all_products(self):

@@ -49,6 +49,17 @@ class Sale:
         """
         return self.sale_items
 
+    def get_total(self, catalog):
+        """
+        Return the total amount for this sale using the catalog for prices.
+        """
+        total = 0
+        for item in self.sale_items:
+            line_total = item.line_total(catalog)
+            if line_total is not None:
+                total += line_total
+        return total
+
     @staticmethod
     def from_dict(sale_row_dict):
         """
@@ -61,11 +72,22 @@ class Sale:
         sale.add_sale_item(SaleItem.from_dict(sale_row_dict))
         return sale
 
-    def print_sale(self):
+    def print_sale(self, catalog):
         """
-        Print the sale.
+        Print the sale and its total (requires catalog for prices).
         """
         print(f"Sale ID: {self.sale_id}")
         print(f"Sale Date: {self.sale_date}")
         for sale_item in self.sale_items:
-            print(f"{sale_item.get_quantity()} x {sale_item.get_product()}")
+            product_name = sale_item.get_product()
+            product = catalog.get_product_by_title(product_name)
+            if product is None:
+                print(f"Product {product_name} not found in catalog")
+                continue
+            unit_price = product.get_price()
+            subtotal = sale_item.line_total(catalog)
+            print(
+                f"{sale_item.get_quantity()} x {product_name} "
+                f"@ ${unit_price:.2f} = ${subtotal:.2f}"
+            )
+        print(f"Total: ${self.get_total(catalog):.2f}")

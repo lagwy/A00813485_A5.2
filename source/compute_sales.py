@@ -10,6 +10,7 @@ It calculates the total cost for all sales.
 import sys
 import time
 import json
+from io import StringIO
 
 from product_catalog import ProductCatalog
 from sales import Sales
@@ -69,6 +70,14 @@ def read_sales(sales_file):
     return sales
 
 
+def write_results_to_file(sales_output, elapsed_time,
+                          filename="SalesResults.txt"):
+    """Write sales output and elapsed time to a file."""
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write(sales_output)
+        file.write(f"Elapsed time: {elapsed_time:.3f} seconds\n")
+
+
 def main():
     """Main function to run the calculations."""
     # Check the command line arguments
@@ -84,18 +93,29 @@ def main():
 
     # Load the catalog
     product_catalog = load_catalog(catalog_file)
-    product_catalog.print_products()
 
     # Load the sales
     sales = load_sales(sales_file)
+    sales.set_catalog(product_catalog)
+
+    # Capture sales print output for file and console
+    buffer = StringIO()
+    old_stdout = sys.stdout
+    sys.stdout = buffer
     sales.print_sales()
+    sys.stdout = old_stdout
+    sales_output = buffer.getvalue()
+    print(sales_output, end="")
 
     # End timing
     end_time = time.time()
     elapsed_time = end_time - start_time
 
     # Print the elapsed time
-    print(f"Elapsed time: {elapsed_time} seconds")
+    print(f"Elapsed time: {elapsed_time:.3f} seconds")
+
+    # Write results to file (sales output + total + elapsed time)
+    write_results_to_file(sales_output, elapsed_time)
 
 
 if __name__ == "__main__":
